@@ -1,0 +1,935 @@
+:root {
+    --neon-blue: #00f3ff;
+    --neon-pink: #ff00ff;
+    --dark-blue: #000428;
+    --deep-purple: #1a0033;
+    --text-color: #ffffff;
+    --glitch-offset: 0;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Rajdhani', sans-serif;
+    background: var(--dark-blue);
+    color: var(--text-color);
+    line-height: 1.6;
+}
+
+/* Header Styles */
+header {
+    position: fixed;
+    width: 100%;
+    z-index: 1000;
+    padding: 1rem 2rem;
+    background: rgba(0, 4, 40, 0.3);
+    backdrop-filter: blur(10px);
+}
+
+.header-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    height: 40px;
+    display: flex;
+    align-items: center;
+}
+
+.logo img {
+    height: 100%;
+    width: auto;
+    object-fit: contain;
+}
+
+.social-icons a {
+    color: var(--text-color);
+    margin-left: 1.5rem;
+    font-size: 1.2rem;
+    transition: all 0.3s ease;
+}
+
+.social-icons a:hover {
+    color: var(--neon-pink);
+    text-shadow: 0 0 10px var(--neon-pink);
+}
+
+/* Hero Section */
+.hero {
+    height: 100vh;
+    position: relative;
+    overflow: hidden;
+    background: linear-gradient(
+        180deg,
+        var(--dark-blue) 0%,
+        var(--deep-purple) 100%
+    );
+}
+
+.hero-image {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0.6;
+}
+
+.neon-overlay {
+    display: none;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+/* Hero Title styles dengan font baru dan glow effect */
+.hero-title {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 5.5rem;
+    font-weight: 700;
+    color: #ffffff;
+    text-transform: uppercase;
+    letter-spacing: 4px;
+    text-shadow: 
+        0 0 10px var(--neon-blue),
+        0 0 20px var(--neon-blue),
+        0 0 30px var(--neon-blue),
+        0 0 40px var(--neon-blue);
+    margin-bottom: 1.5rem;
+    line-height: 1.2;
+}
+
+.hero-subtitle {
+    font-size: 1.5rem;
+    color: var(--neon-pink);
+    text-transform: uppercase;
+    letter-spacing: 4px;
+    margin-bottom: 2rem;
+    text-shadow: 0 0 10px var(--neon-pink);
+}
+
+.hero-text {
+    max-width: 600px;
+    margin-bottom: 2rem;
+    color: rgba(255, 255, 255, 0.8);
+}
+
+/* Neon Lines Effect */
+.neon-lines {
+    display: none;
+}
+
+.neon-line {
+    position: absolute;
+    background: var(--neon-pink);
+    opacity: 0.3;
+}
+
+.neon-line.vertical {
+    width: 1px;
+    height: 100%;
+    top: 0;
+}
+
+.neon-line.horizontal {
+    height: 1px;
+    width: 100%;
+    left: 0;
+}
+
+/* Animations */
+@keyframes textGlow {
+    0% {
+        text-shadow: 
+            0 0 10px var(--neon-blue),
+            0 0 20px var(--neon-blue),
+            0 0 40px var(--neon-blue),
+            0 0 80px var(--neon-blue);
+    }
+    100% {
+        text-shadow: 
+            0 0 5px var(--neon-blue),
+            0 0 10px var(--neon-blue),
+            0 0 20px var(--neon-blue),
+            0 0 40px var(--neon-blue);
+    }
+}
+
+/* Media Queries */
+@media (max-width: 768px) {
+    .logo {
+        height: 40px;
+    }
+
+    .hero-title {
+        font-size: 2.8rem;
+        letter-spacing: 3px;
+    }
+    
+    .hero-subtitle {
+        font-size: 1.2rem;
+        letter-spacing: 2px;
+        margin-bottom: 1.5rem;
+        text-shadow: 
+            0 0 5px var(--neon-pink),
+            0 0 10px var(--neon-pink);
+    }
+
+    .hero-text {
+        font-size: 0.9rem;
+        max-width: 100%;
+    }
+
+    .side-effects {
+        display: none;
+    }
+
+    .side-squares {
+        left: 12px;
+    }
+
+    .square {
+        width: 6px;
+        height: 6px;
+    }
+
+    .portfolio-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+
+    .portfolio-item {
+        padding: 1.5rem;
+    }
+
+    .section-title {
+        font-size: 2rem;
+        margin-bottom: 2rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .logo {
+        height: 35px;
+    }
+
+    .hero-title {
+        font-size: 2rem;
+        letter-spacing: 2px;
+    }
+
+    .hero-content {
+        padding: 0 1rem;
+    }
+
+    .header-content {
+        padding: 0 1rem;
+    }
+
+    .social-icons a {
+        margin-left: 1rem;
+        font-size: 1rem;
+    }
+
+    .logo {
+        font-size: 1.2rem;
+    }
+
+    /* Tambah efek glow untuk mobile */
+    .portfolio-item {
+        border-width: 2px;
+        box-shadow: 
+            0 0 10px rgba(0, 243, 255, 0.2),
+            inset 0 0 15px rgba(0, 243, 255, 0.1);
+    }
+
+    .portfolio-item:hover {
+        transform: translateY(-5px);
+        box-shadow: 
+            0 0 20px rgba(0, 243, 255, 0.3),
+            inset 0 0 25px rgba(0, 243, 255, 0.2);
+    }
+
+    .form-input {
+        font-size: 0.9rem;
+        padding: 0.8rem;
+    }
+
+    .submit-btn {
+        padding: 0.8rem 1.5rem;
+        font-size: 0.9rem;
+    }
+}
+
+/* Tambah efek glow untuk sentuhan */
+@media (hover: none) {
+    .portfolio-item:active {
+        transform: scale(0.98);
+        box-shadow: 
+            0 0 30px rgba(255, 0, 255, 0.3),
+            inset 0 0 35px rgba(255, 0, 255, 0.2);
+    }
+
+    .submit-btn:active {
+        background: var(--neon-blue);
+        color: var(--dark-blue);
+        box-shadow: 
+            0 0 20px var(--neon-blue),
+            inset 0 0 10px rgba(255, 255, 255, 0.5);
+    }
+
+    .social-icons a:active {
+        color: var(--neon-pink);
+        text-shadow: 
+            0 0 10px var(--neon-pink),
+            0 0 20px var(--neon-pink);
+        transform: scale(1.2);
+    }
+}
+
+/* Tambah smooth scrolling untuk mobile */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Optimasi performa animasi untuk mobile */
+@media (prefers-reduced-motion: reduce) {
+    * {
+        animation: none !important;
+        transition: none !important;
+    }
+}
+
+/* Update loading animation untuk mobile */
+.loading {
+    padding: 1rem;
+}
+
+.loading-text {
+    font-size: 1rem;
+    text-shadow: 
+        0 0 5px var(--neon-blue),
+        0 0 10px var(--neon-blue);
+}
+
+/* Tambah efek tap highlight yang custom */
+* {
+    -webkit-tap-highlight-color: rgba(0, 243, 255, 0.2);
+}
+
+/* Portfolio Section */
+.portfolio {
+    padding: 6rem 2rem;
+    background: var(--dark-blue);
+    position: relative;
+    overflow: hidden;
+}
+
+.portfolio-container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.section-title {
+    position: relative;
+    font-family: 'Share Tech Mono', monospace;
+    font-size: 3rem;
+    color: var(--neon-blue);
+    text-transform: uppercase;
+    margin-bottom: 3rem;
+    text-align: center;
+    text-shadow: 
+        0 0 10px var(--neon-blue),
+        0 0 20px var(--neon-blue);
+    animation: titlePulse 2s infinite alternate;
+}
+
+.portfolio-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    padding: 2rem 0;
+}
+
+.portfolio-item {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-height: 300px;
+    backdrop-filter: blur(10px);
+    border: 1px solid var(--neon-pink);
+    background: rgba(26, 0, 51, 0.3);
+    transition: all 0.3s ease;
+    padding: 2rem;
+}
+
+.portfolio-item img {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.portfolio-item:hover img {
+    transform: scale(1.1);
+}
+
+.portfolio-content {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    padding: 1.5rem;
+    background: linear-gradient(
+        to top,
+        rgba(0, 4, 40, 0.9),
+        transparent
+    );
+    transform: translateY(100%);
+    transition: transform 0.3s ease;
+}
+
+.portfolio-item:hover .portfolio-content {
+    transform: translateY(0);
+}
+
+.github-stats {
+    display: flex;
+    gap: 1.5rem;
+    margin-top: 1rem;
+    color: var(--neon-blue);
+    padding: 0.5rem 0;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.github-stat {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    transition: all 0.3s ease;
+}
+
+.github-stat:hover {
+    color: var(--neon-pink);
+    transform: translateY(-2px);
+}
+
+.github-stat i {
+    font-size: 1.1rem;
+}
+
+.github-stat span {
+    font-size: 0.9rem;
+}
+
+.repo-link {
+    margin-top: 1.5rem;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: var(--neon-pink);
+    text-decoration: none;
+    font-size: 0.9rem;
+    transition: all 0.3s ease;
+}
+
+.repo-link:hover {
+    color: var(--neon-blue);
+    text-shadow: 0 0 10px var(--neon-blue);
+}
+
+.repo-link i {
+    font-size: 1.2rem;
+}
+
+.tech-stack {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-top: 1rem;
+}
+
+.tech-tag {
+    padding: 0.3rem 0.8rem;
+    background: rgba(0, 243, 255, 0.1);
+    border: 1px solid var(--neon-blue);
+    color: var(--neon-blue);
+    font-size: 0.8rem;
+    border-radius: 2px;
+}
+
+.portfolio-title {
+    font-size: 1.8rem;
+    margin-bottom: 1rem;
+}
+
+.portfolio-description {
+    color: rgba(255, 255, 255, 0.8);
+    margin-bottom: 1rem;
+    line-height: 1.6;
+}
+
+/* Contact Section */
+.contact {
+    padding: 6rem 2rem;
+    background: linear-gradient(
+        to bottom,
+        var(--dark-blue),
+        var(--deep-purple)
+    );
+    position: relative;
+}
+
+.contact-container {
+    max-width: 800px;
+    margin: 0 auto;
+    background: rgba(26, 0, 51, 0.5);
+    padding: 3rem;
+    border: 1px solid var(--neon-blue);
+    box-shadow: 0 0 20px rgba(0, 243, 255, 0.2);
+}
+
+.contact-form {
+    display: grid;
+    gap: 2rem;
+}
+
+.form-group {
+    position: relative;
+}
+
+.form-input {
+    width: 100%;
+    padding: 1rem;
+    background: rgba(0, 4, 40, 0.5);
+    border: 1px solid var(--neon-pink);
+    color: var(--text-color);
+    font-family: 'Orbitron', sans-serif;
+    transition: all 0.3s ease;
+}
+
+.form-input:focus {
+    outline: none;
+    border-color: var(--neon-blue);
+    box-shadow: 0 0 15px rgba(0, 243, 255, 0.3);
+}
+
+.form-input::placeholder {
+    color: rgba(255, 255, 255, 0.5);
+}
+
+.submit-btn {
+    padding: 1rem 2rem;
+    background: transparent;
+    border: 1px solid var(--neon-blue);
+    color: var(--neon-blue);
+    font-family: 'Orbitron', sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.submit-btn:hover {
+    background: var(--neon-blue);
+    color: var(--dark-blue);
+    box-shadow: 0 0 20px var(--neon-blue);
+}
+
+/* Neon Corner Effect */
+.neon-corner {
+    position: absolute;
+    width: 50px;
+    height: 50px;
+}
+
+.neon-corner::before,
+.neon-corner::after {
+    content: '';
+    position: absolute;
+    background: var(--neon-pink);
+}
+
+.neon-corner::before {
+    width: 2px;
+    height: 100%;
+}
+
+.neon-corner::after {
+    width: 100%;
+    height: 2px;
+}
+
+.neon-corner.top-left {
+    top: 0;
+    left: 0;
+}
+
+.neon-corner.top-right {
+    top: 0;
+    right: 0;
+    transform: rotate(90deg);
+}
+
+.neon-corner.bottom-left {
+    bottom: 0;
+    left: 0;
+    transform: rotate(-90deg);
+}
+
+.neon-corner.bottom-right {
+    bottom: 0;
+    right: 0;
+    transform: rotate(180deg);
+}
+
+/* Add these new styles */
+.loading {
+    text-align: center;
+    padding: 2rem;
+    width: 100%;
+}
+
+.loading-text {
+    color: var(--neon-blue);
+    font-size: 1.2rem;
+    animation: pulse 1.5s infinite;
+}
+
+.repo-meta {
+    display: flex;
+    gap: 1rem;
+    margin: 1rem 0;
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 0.9rem;
+}
+
+.main-language {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.language-dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+}
+
+.update-time {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.error-message {
+    color: var(--neon-pink);
+    text-align: center;
+    padding: 2rem;
+    width: 100%;
+    border: 1px solid var(--neon-pink);
+    background: rgba(255, 0, 255, 0.1);
+}
+
+@keyframes pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.5; }
+}
+
+/* Update portfolio-item styles */
+.portfolio-item {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-height: 300px;
+    backdrop-filter: blur(10px);
+    border: 1px solid var(--neon-pink);
+    background: rgba(26, 0, 51, 0.3);
+    transition: all 0.3s ease;
+    padding: 2rem;
+}
+
+.portfolio-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 0 30px rgba(255, 0, 255, 0.2);
+}
+
+/* Grunge Overlay Effect */
+.grunge-overlay {
+    display: none;
+}
+
+/* Glitch Effect for Title */
+
+
+
+
+
+.hero-title::after {
+    left: calc(var(--glitch-offset) * -1);
+    text-shadow: 2px 0 var(--neon-blue);
+    clip: rect(85px, 550px, 140px, 0);
+    animation: glitch-anim-2 2s infinite linear alternate-reverse;
+}
+
+/* Scanline Effect */
+.scanline {
+    display: none;
+}
+
+/* Update Portfolio Items */
+.portfolio-item {
+    position: relative;
+    overflow: hidden;
+}
+
+.portfolio-item::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+        45deg,
+        transparent 0%,
+        rgba(255, 255, 255, 0.05) 50%,
+        transparent 100%
+    );
+    transform: translateX(-100%);
+    transition: transform 0.6s;
+}
+
+.portfolio-item:hover::before {
+    transform: translateX(100%);
+}
+
+/* New Animations */
+@keyframes glitch {
+    0% {
+        text-shadow: 0.05em 0 0 var(--neon-pink), -0.05em -0.025em 0 var(--neon-blue),
+            -0.025em 0.05em 0 var(--deep-purple);
+    }
+    14% {
+        text-shadow: 0.05em 0 0 var(--neon-pink), -0.05em -0.025em 0 var(--neon-blue),
+            -0.025em 0.05em 0 var(--deep-purple);
+    }
+    15% {
+        text-shadow: -0.05em -0.025em 0 var(--neon-pink), 0.025em 0.025em 0 var(--neon-blue),
+            -0.05em -0.05em 0 var(--deep-purple);
+    }
+    49% {
+        text-shadow: -0.05em -0.025em 0 var(--neon-pink), 0.025em 0.025em 0 var(--neon-blue),
+            -0.05em -0.05em 0 var(--deep-purple);
+    }
+    50% {
+        text-shadow: 0.025em 0.05em 0 var(--neon-pink), 0.05em 0 0 var(--neon-blue),
+            0 -0.05em 0 var(--deep-purple);
+    }
+    99% {
+        text-shadow: 0.025em 0.05em 0 var(--neon-pink), 0.05em 0 0 var(--neon-blue),
+            0 -0.05em 0 var(--deep-purple);
+    }
+    100% {
+        text-shadow: -0.025em 0 0 var(--neon-pink), -0.025em -0.025em 0 var(--neon-blue),
+            -0.025em -0.05em 0 var(--deep-purple);
+    }
+}
+
+@keyframes glitch-anim {
+    0% { clip: rect(42px, 9999px, 44px, 0); }
+    5% { clip: rect(12px, 9999px, 59px, 0); }
+    10% { clip: rect(48px, 9999px, 29px, 0); }
+    15% { clip: rect(42px, 9999px, 73px, 0); }
+    20% { clip: rect(63px, 9999px, 27px, 0); }
+    25% { clip: rect(34px, 9999px, 55px, 0); }
+    30% { clip: rect(86px, 9999px, 73px, 0); }
+    35% { clip: rect(20px, 9999px, 20px, 0); }
+    40% { clip: rect(26px, 9999px, 60px, 0); }
+    45% { clip: rect(25px, 9999px, 66px, 0); }
+    50% { clip: rect(57px, 9999px, 98px, 0); }
+    55% { clip: rect(5px, 9999px, 46px, 0); }
+    60% { clip: rect(82px, 9999px, 31px, 0); }
+    65% { clip: rect(54px, 9999px, 27px, 0); }
+    70% { clip: rect(28px, 9999px, 99px, 0); }
+    75% { clip: rect(45px, 9999px, 69px, 0); }
+    80% { clip: rect(23px, 9999px, 85px, 0); }
+    85% { clip: rect(54px, 9999px, 84px, 0); }
+    90% { clip: rect(45px, 9999px, 47px, 0); }
+    95% { clip: rect(37px, 9999px, 20px, 0); }
+    100% { clip: rect(4px, 9999px, 91px, 0); }
+}
+
+/* Add Left Side Animation */
+.side-effects {
+    position: fixed;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 80px;
+    z-index: 100;
+    pointer-events: none;
+}
+
+.side-bar {
+    position: absolute;
+    left: 0;
+    width: 4px;
+    height: 100%;
+    background: var(--neon-pink);
+    opacity: 0.7;
+    box-shadow: 
+        0 0 10px var(--neon-pink),
+        0 0 20px var(--neon-pink);
+}
+
+.side-squares {
+    position: absolute;
+    left: 20px;
+    width: 40px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding: 20px 0;
+}
+
+.square {
+    width: 10px;
+    height: 10px;
+    background: var(--neon-blue);
+    opacity: 0.8;
+    animation: squarePulse 2s infinite alternate;
+}
+
+.square:nth-child(odd) {
+    margin-left: 20px;
+    animation-delay: 0.5s;
+}
+
+.square:nth-child(3n) {
+    animation-delay: 1s;
+}
+
+/* Enhanced text glow animation */
+@keyframes textGlow {
+    0% {
+        text-shadow: 
+            0 0 10px var(--neon-blue),
+            0 0 20px var(--neon-blue),
+            0 0 40px var(--neon-blue),
+            0 0 80px var(--neon-blue),
+            0 0 120px var(--neon-blue),
+            0 0 160px var(--neon-blue);
+        filter: brightness(1.2) contrast(1.2);
+    }
+    100% {
+        text-shadow: 
+            0 0 5px var(--neon-blue),
+            0 0 10px var(--neon-blue),
+            0 0 20px var(--neon-blue),
+            0 0 40px var(--neon-blue),
+            0 0 80px var(--neon-blue),
+            0 0 120px var(--neon-blue);
+        filter: brightness(1) contrast(1);
+    }
+}
+
+/* Square pulse animation */
+@keyframes squarePulse {
+    0% {
+        transform: scale(1);
+        opacity: 0.8;
+        box-shadow: 
+            0 0 5px var(--neon-blue),
+            0 0 10px var(--neon-blue);
+    }
+    100% {
+        transform: scale(1.5);
+        opacity: 0.3;
+        box-shadow: 
+            0 0 10px var(--neon-blue),
+            0 0 20px var(--neon-blue),
+            0 0 40px var(--neon-blue);
+    }
+}
+
+/* Add vertical scanning line */
+.vertical-scan {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 2px;
+    height: 100%;
+    background: rgba(0, 243, 255, 0.5);
+    box-shadow: 
+        0 0 10px var(--neon-blue),
+        0 0 20px var(--neon-blue);
+    animation: verticalScan 8s linear infinite;
+}
+
+@keyframes verticalScan {
+    0% {
+        left: -10px;
+        opacity: 0;
+    }
+    5% {
+        opacity: 0.8;
+    }
+    45% {
+        opacity: 0.8;
+    }
+    50% {
+        left: 100%;
+        opacity: 0;
+    }
+    100% {
+        left: 100%;
+        opacity: 0;
+    }
+}
+
+/* Update section titles */
+.section-title {
+    position: relative;
+    font-family: 'Share Tech Mono', monospace;
+    font-size: 3rem;
+    color: var(--neon-blue);
+    text-transform: uppercase;
+    margin-bottom: 3rem;
+    text-align: center;
+    text-shadow: 
+        0 0 10px var(--neon-blue),
+        0 0 20px var(--neon-blue);
+    animation: titlePulse 2s infinite alternate;
+}
+
+@keyframes titlePulse {
+    0% {
+        text-shadow: 
+            0 0 10px var(--neon-blue),
+            0 0 20px var(--neon-blue);
+    }
+    100% {
+        text-shadow: 
+            0 0 15px var(--neon-blue),
+            0 0 30px var(--neon-blue),
+            0 0 45px var(--neon-blue);
+    }
+}

@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cyberpunk Photo Effect</title>
+    
+    <!-- Preload font penting -->
+   
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700&family=Rajdhani:wght@300;400;500;600;700&family=Share+Tech+Mono&display=swap" rel="stylesheet">
+    
+    
+<body>
+    <div class="grunge-overlay"></div>
+    <div class="scanline"></div>
+    
+    <!-- Add side effects -->
+    <div class="side-effects">
+        <div class="side-bar"></div>
+        <div class="side-squares">
+            <div class="square"></div>
+            <div class="square"></div>
+            <div class="square"></div>
+            <div class="square"></div>
+            <div class="square"></div>
+            <div class="square"></div>
+            <div class="square"></div>
+            <div class="square"></div>
+            <div class="square"></div>
+            <div class="square"></div>
+        </div>
+        <div class="vertical-scan"></div>
+    </div>
+    
+    <header>
+        <div class="header-content">
+            <div class="logo">
+                <img src="img/user-ibedes.png" alt="Logo">
+            </div>
+            <div class="social-icons">
+                <a href="#"><i class="fab fa-facebook"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+            </div>
+        </div>
+    </header>
+
+    <section class="hero">
+        <img src="path/to/cyberpunk-city.jpg" alt="Cyberpunk City" class="hero-image" loading="lazy">
+        <div class="neon-overlay"></div>
+        <div class="neon-lines">
+            <div class="neon-line vertical" style="left: 20%"></div>
+            <div class="neon-line vertical" style="left: 40%"></div>
+            <div class="neon-line vertical" style="left: 60%"></div>
+            <div class="neon-line vertical" style="left: 80%"></div>
+            <div class="neon-line horizontal" style="top: 30%"></div>
+            <div class="neon-line horizontal" style="top: 60%"></div>
+        </div>
+        <div class="hero-content">
+            <h1 class="hero-title" data-text="Cyberpunk">Ibedes Studio</h1>
+            <p class="hero-subtitle">Photo Effect</p>
+            <p class="hero-text">It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.</p>
+        </div>
+    </section>
+
+    <!-- Portfolio Section -->
+    <section class="portfolio">
+        <div class="portfolio-container">
+            <h2 class="section-title">My GitHub Projects</h2>
+            <div id="github-repos" class="portfolio-grid">
+                <!-- Repositories will be loaded here -->
+                <div class="loading">
+                    <span class="loading-text">Loading Projects...</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact">
+        <div class="contact-container">
+            <div class="neon-corner top-left"></div>
+            <div class="neon-corner top-right"></div>
+            <div class="neon-corner bottom-left"></div>
+            <div class="neon-corner bottom-right"></div>
+            
+            <h2 class="section-title">Contact Us</h2>
+            <form class="contact-form">
+                <div class="form-group">
+                    <input type="text" class="form-input" placeholder="Your Name" required>
+                </div>
+                <div class="form-group">
+                    <input type="email" class="form-input" placeholder="Your Email" required>
+                </div>
+                <div class="form-group">
+                    <textarea class="form-input" rows="5" placeholder="Your Message" required></textarea>
+                </div>
+                <button type="submit" class="submit-btn">Send Message</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Font loading script -->
+ 
+
+    <script src="script.js" defer></script>
+</body>
+</html> 
